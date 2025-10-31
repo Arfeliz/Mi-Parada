@@ -6,7 +6,6 @@
     "build": "tsc",
     "start": "npm run build && node dist/index.js",
     "start:dev": "npm run build && nodemon dist/index.js"
-
   },
   "keywords": [],
   "author": "",
@@ -17,6 +16,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mysql": "^2.18.1",
+    "mysql2": "^3.15.3",
     "nodemon": "^3.1.10",
     "sequelize": "^6.37.7"
   },
