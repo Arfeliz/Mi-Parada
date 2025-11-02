@@ -11,7 +11,7 @@ export const createUser = async (data: Partial<User>) => {
 export const getAllUser = async () => {
     const user = await User.findAll();
 
-    console.log('Product created: ', JSON.stringify(user))
+    console.log('User created: ', JSON.stringify(user))
 
     return user;
 }
