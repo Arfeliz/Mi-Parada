@@ -3,6 +3,10 @@ import dotenv from 'dotenv';
 import { connect, sequelize } from './src/config/db';
 import userRouter from './src/routes/user.route'
 import stopStationRouter from './src/routes/stopStation.route'
+import transportRouter from './src/routes/transport.route'
+import timeRouter from './src/routes/time.route'
+import syndicateRouter from './src/routes/syndicate.route'
+
 
 
 
@@ -31,10 +35,9 @@ app.get('/',(_req,res)=>{
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/stopStation", stopStationRouter);
-app.use("/api/v1/user", userRouter);
-app.use("/api/v1/user", userRouter);
-
-
+app.use("/api/v1/transport", transportRouter);
+app.use("/api/v1/time", timeRouter);
+app.use("/api/v1/syndicate", syndicateRouter);
 
 // Start server
 app.listen(PORT, () => {
