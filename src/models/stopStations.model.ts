@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from '../config/db'
-import { Time } from "./times.model";
+import { Time } from "./time.model";
 import {Transport} from "./transport.model"
 
 

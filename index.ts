@@ -1,17 +1,18 @@
 import express from "express";
-import cors from 'cors';
 import dotenv from 'dotenv';
 import { connect, sequelize } from './src/config/db';
+import userRouter from './src/routes/user.route'
+import stopStationRouter from './src/routes/stopStation.route'
+
+
 
 const app = express();
-app.use(cors());
-
 dotenv.config();
 
 const PORT = process.env['PORT'] || 3000;
 
 const loadConfig = async () => {
-  console.log('🔄 Loading config...');
+  console.log('🔄 Loading config..hola.');
   await connect();
   await sequelize.sync({ alter: true });
   console.log('✅ Config loaded successfully');
@@ -19,9 +20,20 @@ const loadConfig = async () => {
 
 loadConfig();
 
+// Middlewares 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//Route
 app.get('/',(_req,res)=>{
     res.send('hola mundo')
 })
+
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/stopStation", stopStationRouter);
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/user", userRouter);
+
 
 
 // Start server
@@ -29,3 +41,5 @@ app.listen(PORT, () => {
   console.log(`🚀 Server is running on port ${PORT} 🚀`);
   console.log(`📱 check available at http://localhost:${PORT}/`);
 });
+
+export default app;
